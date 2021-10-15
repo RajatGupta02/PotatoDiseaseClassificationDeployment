@@ -26,7 +26,7 @@ def predict(model, img):
 MODEL = tf.keras.models.load_model('webmodel.h5')
 
 st.title("Potato Disease Classification")
-st.subheader('Upload an Image of Potato Leaf')
+st.subheader('Upload an Image of Potato Leaf 🌱')
 
 uploaded_image= st.file_uploader("Choose an image...", type=['jpg', 'png'])
 
@@ -37,4 +37,32 @@ if uploaded_image is not None:
 
     st.markdown(f'**Prediction**: {result}')
     st.markdown(f'**Confidence**: {confidence}%')
-    
+
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed with &#10084;&#65039; by <a href="https://github.com/RajatGupta02" target="_blank">Rajat Gupta</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
